@@ -1,0 +1,70 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  
+  <oj-c-form-layout
+    id="formLayoutOptions"
+    max-columns="1"
+    direction="row"
+    user-assistance-density="compact">
+    <h1>Username</h1>
+    <oj-c-input-text
+      id="text-input"
+      raw-value="{{username}}"
+      label-hint="Enter Username"
+      label-edge="inside"></oj-c-input-text>
+    <h1>Password</h1>
+    <oj-c-input-password label-hint="Enter Password"></oj-c-input-password>
+    <h1>Gender</h1>
+    <div id="radioset-container">
+      <oj-c-radioset
+        id="radiosetBasicDemoId"
+        label-edge="inside"
+        options="[[colorOptions]]"
+        value="{{currentColor}}">
+      </oj-c-radioset>
+  
+      <div class="oj-sm-margin-3x-vertical">
+        <oj-label-value>
+          <oj-label slot="label">Current component value is</oj-label>
+          <span slot="value">
+            <oj-bind-text value="[[currentColor]]"></oj-bind-text>
+          </span>
+        </oj-label-value>
+      </div>
+      <div >
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice1</oj-c-checkbox>
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice2</oj-c-checkbox>
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice3</oj-c-checkbox>
+      </div>
+      <h1>Date</h1>
+      <oj-c-input-date-text
+                id="f5"
+                value="{{date}}"
+                label-hint="Select Date (mm/dd/yyyy)"
+                ></oj-c-input-date-text>
+      <div>
+      <h1>Nationality</h1>
+      <oj-c-select-single
+                id="f12"
+                label-hint="Select Nationality"
+                data="[[browsersDP]]"
+                item-text="label"></oj-c-select-single> 
+      </div>
+      <div>
+        <oj-c-button
+        id="save"
+        chroming="outlined"
+        label="Save Draft">
+      </oj-c-button>
+      <oj-progress-bar
+              id="progressBar"
+              aria-label="basic progress bar"
+              value="[[indeterminate().length > 0 ? -1 : progressValue]]"></oj-progress-bar>
+      </div>
+    </div>
+  </oj-c-form-layout>
+</div>
