@@ -35,7 +35,6 @@ type DataType = {
 };
 
 class DashboardViewModel {
-  readonly progressValue = ko.observable();
   readonly indeterminate = ko.observableArray();
   username : ko.Observable<string>;
   date : ko.Observable<Date> | ko.Observable<any>;
@@ -43,7 +42,10 @@ class DashboardViewModel {
   currentColor: ko.Observable<string>;
   colorOptions: Array<{ value: string; label: string }>;
   browsersDP: ArrayDataProvider<string, DataType>;
-
+  private readonly step = ko.observable(0);
+    readonly progressValue = ko.pureComputed(() => {
+      return Math.min(this.step(), 100);
+    });
   
 
   //browsersDP: ko.Observable<ArrayDataProvider<Object, Object>>;
@@ -65,7 +67,17 @@ class DashboardViewModel {
       this.browsersDP = new ArrayDataProvider(browsers, {
         keyAttributes: 'value'
       });
-      
+      this.progressValue.subscribe((newValue: number) => {
+        if (newValue === 100) {
+          let loadingRegion = document.getElementById('loadingRegion');
+
+        }
+      });
+
+      window.setInterval(() => {
+        this.step((this.step() + 1) % 200);
+      }, 30);
+
    }
   
   

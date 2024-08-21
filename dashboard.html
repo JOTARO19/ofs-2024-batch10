@@ -36,16 +36,18 @@
         </oj-label-value>
       </div>
       <div >
-        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice1</oj-c-checkbox>
-        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice2</oj-c-checkbox>
-        <oj-c-checkbox id="enabledCheckboxOn" value="false">choice3</oj-c-checkbox>
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">Terms and Condition 1</oj-c-checkbox>
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">Terms and Condition 2</oj-c-checkbox>
+        <oj-c-checkbox id="enabledCheckboxOn" value="false">Terms and condition 3</oj-c-checkbox>
       </div>
+      <div>
       <h1>Date</h1>
       <oj-c-input-date-text
                 id="f5"
                 value="{{date}}"
                 label-hint="Select Date (mm/dd/yyyy)"
                 ></oj-c-input-date-text>
+      </div>
       <div>
       <h1>Nationality</h1>
       <oj-c-select-single
@@ -60,10 +62,13 @@
         chroming="outlined"
         label="Save Draft">
       </oj-c-button>
+      </div>
+      <div>
       <oj-progress-bar
+              class="oj-sm-margin-4x-bottom demo-width"
               id="progressBar"
-              aria-label="basic progress bar"
-              value="[[indeterminate().length > 0 ? -1 : progressValue]]"></oj-progress-bar>
+              aria-labelledby="detLabel"
+              value="[[progressValue]]"></oj-progress-bar>
       </div>
     </div>
   </oj-c-form-layout>
